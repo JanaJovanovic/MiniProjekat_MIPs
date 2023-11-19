@@ -1,0 +1,29 @@
+Projekat 1:
+Kako bi se odredilo na koji PORT treba da se poveže LE dioda, 
+računa se koliko suglasnika, 
+a koliko samoglasnika ima u mom imenu i prezimenu
+Jana Jovanović
+suglasnici:7
+samoglasnici:6
+suglasnici > samoglasnici  -> PORTB
+
+Kako bi se odredilo na koji PIN treba da se poveže LE dioda, 
+računa se zbir slova u imenu i prezimenu i njegov ostatak pri deljenju sa 6:
+13 mod 6 = 1  -> PIN1
+
+Širina impulsa, koliko će dugo dioda svetleti,
+računa se po broju slova u imenu * 100 -> 400ms
+
+Širina pauze, koliko će dugo dioda biti isključena,
+računa se po broju slova u prezimenu *100 -> 900ms
+
+Sledeće ponavljanje uključivanje/isključivanje diode
+biće obrnuto, što znači da će širina impulsa biti 900ms, 
+a širina pauze 400ms
+
+U Proteusu se sve povezuje kako je u postavci zadatka, a
+potom se u STM32CubeIDE-u generiše kod i pomoću funkcija iz HAL biblioteke
+realizuje uključivanje i isključivanje diode 
+(HAL_GPIO_WritePin() ; HAL_Delay())
+.hex fajl koda se postavlja na pločicu i pokreće se simulacija. 
+
